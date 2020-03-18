@@ -1,6 +1,10 @@
-# corona
+# Corona App
 
 > Corona
+
+## Welcome to the Corona App Open Source project
+
+The aim of this project is to create an app that will help the general public quickly access their risk level of infection as well as get reliable and up to date information on the corona virus.
 
 ## Build Setup
 
