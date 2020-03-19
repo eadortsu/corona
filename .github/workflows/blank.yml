@@ -22,8 +22,8 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     - run: yarn install --frozen-lockfile
-    - run: nuxt build
-    - run: nuxt generate
+    - run: yarn build
+    - run: yarn generate
     - run: yarn jest  
 
     # Runs a single command using the runners shell
