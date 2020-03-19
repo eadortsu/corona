@@ -1,0 +1,23 @@
+name: Firebase Continuous Deployment
+
+on:
+  push:
+    branches: [ master ]
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn generate
+      - uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
