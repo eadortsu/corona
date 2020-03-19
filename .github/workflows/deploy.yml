@@ -21,5 +21,3 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
-  firebase functions:config:set envs.npm_package_description='an app that will help the general public quickly access their risk level of infection as well as get reliable and up to date information on the corona virus.'
