@@ -9,6 +9,16 @@
 
 The aim of this project is to create an app that will help the general public quickly access their risk level of infection as well as get reliable and up to date information on the corona virus.
 
+
+check out [Demo](https://corona-gh.firebaseapp.com/).
+
+#TODO
+1. Search/filter for countries on the stats page.
+2. Show stats fro various cities under each country
+3. News feed: Pull news from trusted and verified source like who, cdc relevant to covid-19 
+4. Dashboard to monitor and visualized test result data.
+
+
 ## Build Setup
 
 ```bash
@@ -25,8 +35,8 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
-
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
 
 ## Contributors ✨
 
@@ -46,3 +56,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
