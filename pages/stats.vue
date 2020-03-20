@@ -124,7 +124,8 @@ export default {
       newDeats: 0,
       tab: null,
       text: '',
-      countries_stat: null
+      countries_stat: null,
+      errors: []
     }
   },
   mounted() {
