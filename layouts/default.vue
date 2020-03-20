@@ -63,7 +63,7 @@
               </v-btn>
             </v-col>
             <v-col>
-              <v-btn class="mx-4" icon>
+              <v-btn class="mx-4" icon to="/news" router>
                 <v-icon size="24px">mdi-newspaper-variant-multiple</v-icon>
               </v-btn>
             </v-col>
