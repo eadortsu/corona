@@ -2,26 +2,38 @@
   <v-layout>
     <v-flex class="text-center">
       <v-card>
-        <v-tabs v-model="tab" centered icons-and-text>
-          <v-tab href="#tab-1">
-            Confirmed
-            <h2>{{ confirms }}</h2>
-          </v-tab>
-          <v-tab href="#tab-2">
-            Deaths
-            <h2>{{ deaths }}</h2>
-          </v-tab>
-          <v-tab href="#tab-3">
-            Recoveries
-            <h2>{{ recovered }}</h2>
-          </v-tab>
-        </v-tabs>
+        <v-bottom-navigation fixed height="60" style="top: 56px;">
+          <v-tabs v-model="tab" centered icons-and-text>
+            <v-tab href="#tab-1">
+              Confirmed
+              <h2>{{ confirms }}</h2>
+            </v-tab>
+            <v-tab href="#tab-2">
+              Deaths
+              <h2>{{ deaths }}</h2>
+            </v-tab>
+            <v-tab href="#tab-3">
+              Recoveries
+              <h2>{{ recovered }}</h2>
+            </v-tab>
+          </v-tabs>
+        </v-bottom-navigation>
+        <v-bottom-navigation fixed height="45" style="top: 120px;">
+          <v-text-field
+            v-model="search"
+            label="Search Country"
+            prepend-inner-icon="mdi-magnify"
+            clearable
+            @keyup="filterByValue(search)"
+          ></v-text-field>
+        </v-bottom-navigation>
+        <v-divider style="margin-bottom: 105px;"></v-divider>
         <v-tabs-items v-model="tab">
           <v-tab-item value="tab-1">
             <v-card flat style="text-align: left">
               <v-list>
                 <v-list-group
-                  v-for="country in countries_stat"
+                  v-for="country in countries"
                   :key="country.country_name"
                   no-action
                 >
@@ -51,7 +63,7 @@
             <v-card flat style="text-align: left">
               <v-list>
                 <v-list-group
-                  v-for="country in countries_stat"
+                  v-for="country in countries"
                   :key="country.country_name"
                   no-action
                 >
@@ -81,7 +93,7 @@
             <v-card flat style="text-align: left">
               <v-list>
                 <v-list-group
-                  v-for="country in countries_stat"
+                  v-for="country in countries"
                   :key="country.country_name"
                   no-action
                 >
@@ -125,7 +137,9 @@ export default {
       tab: null,
       text: '',
       countries_stat: null,
-      errors: []
+      countries: null,
+      errors: [],
+      search: ''
     }
   },
   mounted() {
@@ -166,11 +180,24 @@ export default {
       .then((response) => {
         // JSON responses are automatically parsed.
         this.countries_stat = response.data.countries_stat
+        this.countries = response.data.countries_stat
       })
       .catch((e) => {
         this.errors.push(e)
       })
   },
-  methods: {}
+  methods: {
+    filterByValue(text) {
+      this.countries = this.countries_stat.filter(
+        (data) =>
+          JSON.stringify(data)
+            .toLowerCase()
+            .includes('corona') ||
+          JSON.stringify(data)
+            .toLowerCase()
+            .includes(text.toLowerCase())
+      )
+    }
+  }
 }
 </script>
