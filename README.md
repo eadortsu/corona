@@ -13,10 +13,9 @@ The aim of this project is to create an app that will help the general public qu
 check out [Demo](https://corona-gh.firebaseapp.com/).
 
 #TODO
-1. Search/filter for countries on the stats page.
-2. Show stats fro various cities under each country
-3. News feed: Pull news from trusted and verified source like who, cdc relevant to covid-19 
-4. Dashboard to monitor and visualized test result data.
+0. Historical test 
+1. Show stats from various cities under each country
+2. Dashboard to monitor and visualized test result data.
 
 
 ## Build Setup
