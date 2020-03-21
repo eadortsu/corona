@@ -1,6 +1,23 @@
 <template>
   <v-layout>
     <v-flex>
+      <v-bottom-navigation fixed height="60" style="top: 56px;">
+        <v-btn value="recent" to="/news" router>
+          <span>World</span>
+          <v-img src="/world.png" :contain="true" width="24"></v-img>
+        </v-btn>
+
+        <v-btn value="favorites" to="/news/africa" router>
+          <span>Africa</span>
+          <v-img src="/africa.png" :contain="true" width="24"></v-img>
+        </v-btn>
+
+        <v-btn value="nearby" to="/news/ghana" router>
+          <span>Ghana</span>
+          <v-img src="/gh.png" :contain="true" width="24"></v-img>
+        </v-btn>
+      </v-bottom-navigation>
+      <v-divider style="margin-bottom: 53px"></v-divider>
       <v-col v-for="n in news" :key="n.title" cols="12">
         <v-card class="mx-auto">
           <v-img :src="n.urlToImage" height="150px"></v-img>
@@ -14,9 +31,11 @@
           </v-card-subtitle>
 
           <v-card-actions>
-            <v-btn text>Read More...</v-btn>
+            <v-btn text :href="n.url" target="_blank">Read More...</v-btn>
             <v-spacer></v-spacer>
-            <v-btn icon><v-icon>open-in-new</v-icon></v-btn>
+            <v-btn icon :href="n.url" target="_blank"
+              ><v-icon>mdi-open-in-new</v-icon></v-btn
+            >
             <v-btn icon><v-icon>mdi-share-variant</v-icon></v-btn>
             <!-- <v-btn icon @click="show = !show">
               <v-icon>{{
@@ -45,9 +64,7 @@
   </v-layout>
 </template>
 <script>
-/* import axios from 'axios' */
 import axios from 'axios'
-
 export default {
   data() {
     return {
