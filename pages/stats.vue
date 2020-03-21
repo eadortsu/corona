@@ -32,6 +32,14 @@
           <v-tab-item value="tab-1">
             <v-card flat style="text-align: left">
               <v-list>
+                <v-list-item v-for="i in 10" v-show="loading" :key="i">
+                  <v-sheet :color="`grey darken-2`" width="100%">
+                    <v-skeleton-loader
+                      class="mx-auto"
+                      type="table-heading, actions"
+                    ></v-skeleton-loader>
+                  </v-sheet>
+                </v-list-item>
                 <v-list-group
                   v-for="country in countries"
                   :key="country.country_name"
@@ -139,54 +147,59 @@ export default {
       countries_stat: null,
       countries: null,
       errors: [],
-      search: ''
+      search: '',
+      loading: true
     }
   },
   mounted() {
-    axios
-      .get(
-        `https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php`,
-        {
-          headers: {
-            'x-rapidapi-host': 'coronavirus-monitor.p.rapidapi.com',
-            'x-rapidapi-key':
-              '5e267bfa9cmshcf4eb1857ee9eb0p1dfc62jsnc0504cefedf9'
-          }
-        }
-      )
-      .then((response) => {
-        // JSON responses are automatically parsed.
-        this.confirms = response.data.total_cases
-        this.deaths = response.data.total_deaths
-        this.recovered = response.data.total_recovered
-        this.newCases = response.data.new_cases
-        this.newDeats = response.data.new_deaths
-      })
-      .catch((e) => {
-        this.errors.push(e)
-      })
-
-    axios
-      .get(
-        `https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php`,
-        {
-          headers: {
-            'x-rapidapi-host': 'coronavirus-monitor.p.rapidapi.com',
-            'x-rapidapi-key':
-              '5e267bfa9cmshcf4eb1857ee9eb0p1dfc62jsnc0504cefedf9'
-          }
-        }
-      )
-      .then((response) => {
-        // JSON responses are automatically parsed.
-        this.countries_stat = response.data.countries_stat
-        this.countries = response.data.countries_stat
-      })
-      .catch((e) => {
-        this.errors.push(e)
-      })
+    this.loadStats()
   },
   methods: {
+    loadStats() {
+      axios
+        .get(
+          `https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php`,
+          {
+            headers: {
+              'x-rapidapi-host': 'coronavirus-monitor.p.rapidapi.com',
+              'x-rapidapi-key':
+                '5e267bfa9cmshcf4eb1857ee9eb0p1dfc62jsnc0504cefedf9'
+            }
+          }
+        )
+        .then((response) => {
+          // JSON responses are automatically parsed.
+          this.confirms = response.data.total_cases
+          this.deaths = response.data.total_deaths
+          this.recovered = response.data.total_recovered
+          this.newCases = response.data.new_cases
+          this.newDeats = response.data.new_deaths
+        })
+        .catch((e) => {
+          this.errors.push(e)
+        })
+
+      axios
+        .get(
+          `https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php`,
+          {
+            headers: {
+              'x-rapidapi-host': 'coronavirus-monitor.p.rapidapi.com',
+              'x-rapidapi-key':
+                '5e267bfa9cmshcf4eb1857ee9eb0p1dfc62jsnc0504cefedf9'
+            }
+          }
+        )
+        .then((response) => {
+          // JSON responses are automatically parsed.
+          this.countries_stat = response.data.countries_stat
+          this.countries = response.data.countries_stat
+          this.loading = false
+        })
+        .catch((e) => {
+          this.errors.push(e)
+        })
+    },
     filterByValue(text) {
       this.countries = this.countries_stat.filter(
         (data) =>

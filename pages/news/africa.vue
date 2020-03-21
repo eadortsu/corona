@@ -18,6 +18,11 @@
         </v-btn>
       </v-bottom-navigation>
       <v-divider style="margin-bottom: 53px"></v-divider>
+      <v-col v-for="i in 4" v-show="loading" :key="i" cols="12">
+        <v-sheet :color="`grey darken-2`" class="">
+          <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
+        </v-sheet>
+      </v-col>
       <v-col v-for="n in news" :key="n.link._text" cols="12">
         <v-card class="mx-auto">
           <v-img :src="n.enclosure._attributes.url" height="150px"></v-img>
@@ -72,7 +77,8 @@ export default {
     return {
       show: false,
       errors: [],
-      news: []
+      news: [],
+      loading: true
     }
   },
   mounted() {
@@ -91,6 +97,7 @@ export default {
           let result = convert.xml2json(xml, { compact: true, spaces: 4 })
           result = JSON.parse(result)
           this.news = this.filterByValue(result.rss.channel.item)
+          this.loading = false
         })
         .catch((e) => {
           this.errors.push(e)
