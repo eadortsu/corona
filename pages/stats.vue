@@ -201,15 +201,19 @@ export default {
         })
     },
     filterByValue(text) {
-      this.countries = this.countries_stat.filter(
-        (data) =>
-          JSON.stringify(data)
-            .toLowerCase()
-            .includes('corona') ||
-          JSON.stringify(data)
-            .toLowerCase()
-            .includes(text.toLowerCase())
-      )
+      if (text.length > 2) {
+        this.countries = this.countries_stat.filter(
+          (data) =>
+            JSON.stringify(data)
+              .toLowerCase()
+              .includes('corona') ||
+            JSON.stringify(data)
+              .toLowerCase()
+              .includes(text.toLowerCase())
+        )
+      } else {
+        this.countries = this.countries_stat
+      }
     }
   }
 }
