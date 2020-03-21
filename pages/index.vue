@@ -226,7 +226,7 @@
               <v-card class="mb-12" color="lighten-1">
                 <v-card-text>
                   <div class="text-center">
-                    <v-img src="/high.gif" contain width="280"></v-img>
+                    <v-img src="/high.png" contain width="300"></v-img>
                   </div>
                   <h4>
                     You are at high risk for COVID-19. Please do the following:
