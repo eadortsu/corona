@@ -19,6 +19,30 @@
         "review",
         "code"
       ]
+    },
+    {
+      "login": "mesteralfreddohnani",
+      "name": "Alfred Doh-Nani",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/54582881?v=4",
+      "profile": "https://github.com/mesteralfreddohnani",
+      "contributions": [
+        "test",
+        "doc",
+        "design",
+        "code"
+      ]
+    },
+    {
+      "login": "thembekageorge",
+      "name": "Thembeka",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/20106105?v=4",
+      "profile": "https://github.com/thembekageorge",
+      "contributions": [
+        "code",
+        "ideas",
+        "test",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
