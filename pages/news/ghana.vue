@@ -1,23 +1,7 @@
 <template>
   <v-layout>
     <v-flex>
-      <v-bottom-navigation fixed height="60" style="top: 56px;">
-        <v-btn value="recent" to="/news" router>
-          <span>World</span>
-          <v-img src="/world.png" :contain="true" width="24"></v-img>
-        </v-btn>
-
-        <v-btn value="favorites" to="/news/africa" router>
-          <span>Africa</span>
-          <v-img src="/africa.png" :contain="true" width="24"></v-img>
-        </v-btn>
-
-        <v-btn value="nearby" to="/news/ghana" router>
-          <span>Ghana</span>
-          <v-img src="/gh.png" :contain="true" width="24"></v-img>
-        </v-btn>
-      </v-bottom-navigation>
-      <v-divider style="margin-bottom: 53px"></v-divider>
+      <newnav></newnav>
       <v-col v-for="i in 4" v-show="loading" :key="i" cols="12">
         <v-sheet :color="`grey darken-2`" class="">
           <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
@@ -72,7 +56,11 @@
 </template>
 <script>
 import axios from 'axios'
+import newnav from '../../components/NewsNav.vue'
 export default {
+  components: {
+    newnav
+  },
   data() {
     return {
       show: false,

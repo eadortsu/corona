@@ -57,12 +57,12 @@
               <v-icon size="24px">mdi-test-tube</v-icon>
             </v-btn>
 
-            <v-btn class="mx-4" icon>
-              <span>Test</span>
+            <!-- <v-btn class="mx-4" icon>
+              <span>History</span>
               <v-icon size="24px">mdi-clock</v-icon>
             </v-btn>
-
-            <v-btn class="mx-4" icon to="/news" router>
+-->
+            <v-btn class="mx-4" icon to="/news/africa" router>
               <span>News</span>
               <v-icon size="24px">mdi-newspaper-variant-multiple</v-icon>
             </v-btn>
