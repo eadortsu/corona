@@ -26,7 +26,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" />-->
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
@@ -51,28 +51,26 @@
     <v-footer :fixed="fixed" app>
       <v-card flat tile width="100%" class="lighten-1 text-center">
         <v-card-text>
-          <v-row no-gutters>
-            <v-col>
-              <v-btn class="mx-4" icon to="/" router>
-                <v-icon size="24px">mdi-test-tube</v-icon>
-              </v-btn>
-            </v-col>
-            <v-col>
-              <v-btn class="mx-4" icon>
-                <v-icon size="24px">mdi-clock</v-icon>
-              </v-btn>
-            </v-col>
-            <v-col>
-              <v-btn class="mx-4" icon>
-                <v-icon size="24px">mdi-newspaper-variant-multiple</v-icon>
-              </v-btn>
-            </v-col>
-            <v-col>
-              <v-btn class="mx-4" icon to="/stats" router>
-                <v-icon size="24px">mdi-chart-areaspline</v-icon>
-              </v-btn>
-            </v-col>
-          </v-row>
+          <v-bottom-navigation fixed>
+            <v-btn class="mx-4 " icon to="/" router>
+              <span>Test</span>
+              <v-icon size="24px">mdi-test-tube</v-icon>
+            </v-btn>
+
+            <!-- <v-btn class="mx-4" icon>
+              <span>History</span>
+              <v-icon size="24px">mdi-clock</v-icon>
+            </v-btn>
+-->
+            <v-btn class="mx-4" icon to="/news/africa" router>
+              <span>News</span>
+              <v-icon size="24px">mdi-newspaper-variant-multiple</v-icon>
+            </v-btn>
+            <v-btn class="mx-4" icon to="/stats" router>
+              <span>Count</span>
+              <v-icon size="24px">mdi-chart-areaspline</v-icon>
+            </v-btn>
+          </v-bottom-navigation>
         </v-card-text>
       </v-card>
     </v-footer>
@@ -100,11 +98,26 @@ export default {
       ],
       miniVariant: false,
       right: true,
-      rightDrawer: false,
-      title: 'Corona App'
+      rightDrawer: false
     }
   },
-  computed: {}
+  computed: {
+    title() {
+      let title = 'Corona App'
+      if (this.$route.name === 'news') {
+        title = 'World News'
+      } else if (this.$route.name === 'news-africa') {
+        title = 'Africa News'
+      } else if (this.$route.name === 'news-ghana') {
+        title = 'Ghana News'
+      } else if (this.$route.name === 'stats') {
+        title = 'Statistics'
+      } else if (this.$route.name === 'index') {
+        title = 'Take Test'
+      }
+      return title
+    }
+  }
 }
 </script>
 <style scoped>
