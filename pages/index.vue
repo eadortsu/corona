@@ -1,317 +1,381 @@
+/* eslint-disable no-console */ /* eslint-disable no-console */
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <v-card>
-        <v-stepper v-model="e1">
-          <v-stepper-header v-show="false">
-            <v-stepper-step :complete="e1 > 1" step="1"
-              >Name of step 1</v-stepper-step
-            >
+  <div>
+    <div class="text-center">
+      <v-snackbar v-model="snackbar.switch" :color="snackbar.color">
+        {{ snackbar.text }}
+        <v-btn color="indigo" text @click="snackbar.switch">
+          Close
+        </v-btn>
+      </v-snackbar>
+    </div>
+    <v-layout column justify-center align-center>
+      <v-flex xs12 sm8 md6>
+        <v-card>
+          <v-stepper v-model="e1">
+            <v-stepper-header v-show="false">
+              <v-stepper-step :complete="e1 > 1" step="1"
+                >Name of step 1</v-stepper-step
+              >
 
-            <v-divider></v-divider>
+              <v-divider></v-divider>
 
-            <v-stepper-step :complete="e1 > 2" step="2"
-              >Name of step 2</v-stepper-step
-            >
+              <v-stepper-step :complete="e1 > 2" step="2"
+                >Name of step 2</v-stepper-step
+              >
 
-            <v-divider></v-divider>
+              <v-divider></v-divider>
 
-            <v-stepper-step step="3">Name of step 3</v-stepper-step>
-          </v-stepper-header>
+              <v-stepper-step step="3">Name of step 3</v-stepper-step>
+            </v-stepper-header>
 
-          <v-stepper-items>
-            <v-stepper-content step="1">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  COVID-19 risk screening and testing</v-card-title
-                >
-                <v-card-text>
-                  <p>
-                    If you are interested in getting tested for COVID-19,
-                    complete an online screener based on guidelines from public
-                    health officials. Based on the responses you can determin
-                    your risk level and connect you to the nearest center to get
-                    tested and possible medical attention.
-                  </p>
-                </v-card-text>
-              </v-card>
+            <v-stepper-items>
+              <v-stepper-content step="1">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    COVID-19 risk screening and testing</v-card-title
+                  >
+                  <v-card-text>
+                    <p>
+                      If you are interested in getting tested for COVID-19,
+                      complete an online screener based on guidelines from
+                      public health officials. Based on the responses you can
+                      determin your risk level and connect you to the nearest
+                      center to get tested and possible medical attention.
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = 2">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="e1 = 2">
+                  Continue
+                </v-btn>
 
-              <v-btn text>Cancel</v-btn>
-            </v-stepper-content>
-            <v-stepper-content step="2">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  How old are you?
-                </v-card-title>
-                <v-card-text>
-                  <p>
-                    <v-text-field
-                      ref="age"
-                      v-model="age"
-                      :rules="[() => !!age || 'This field is required']"
-                      :error-messages="errorMessages"
-                      label="age"
-                      placeholder="Age"
-                      required
-                    ></v-text-field>
-                  </p>
-                </v-card-text>
-              </v-card>
+                <v-btn text>Cancel</v-btn>
+              </v-stepper-content>
+              <v-stepper-content step="2">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    How old are you?
+                  </v-card-title>
+                  <v-card-text>
+                    <p>
+                      <v-text-field
+                        ref="age"
+                        v-model="age"
+                        :rules="[() => !!age || 'This field is required']"
+                        :error-messages="errorMessages"
+                        label="age"
+                        placeholder="Age"
+                        required
+                      ></v-text-field>
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = 3">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="e1 = 3">
+                  Continue
+                </v-btn>
 
-              <v-btn text @click="e1 = 1">Back</v-btn>
-            </v-stepper-content>
-            <v-stepper-content step="3">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  Have you been coughing for the past 14 days?
-                </v-card-title>
-                <v-card-text>
-                  <p>
-                    <v-radio-group v-model="cough" row :mandatory="true">
-                      <v-radio label="Yes" value="Yes"></v-radio>
-                      <v-radio label="No" value="No"></v-radio>
-                    </v-radio-group>
-                  </p>
-                </v-card-text>
-              </v-card>
+                <v-btn text @click="e1 = 1">Back</v-btn>
+              </v-stepper-content>
+              <v-stepper-content step="3">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    Have you been coughing for the past 14 days?
+                  </v-card-title>
+                  <v-card-text>
+                    <p>
+                      <v-radio-group v-model="cough" row :mandatory="true">
+                        <v-radio label="Yes" value="Yes"></v-radio>
+                        <v-radio label="No" value="No"></v-radio>
+                      </v-radio-group>
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = cough === 'Yes' ? 4 : 5">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="e1 = cough === 'Yes' ? 4 : 5">
+                  Continue
+                </v-btn>
 
-              <v-btn text @click="e1 = 2">Back</v-btn>
-            </v-stepper-content>
-            <v-stepper-content step="4">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  Are the cough dry or do you feel dryness in your throat while
-                  coughing?
-                </v-card-title>
-                <v-card-text>
-                  <p>
-                    <v-radio-group v-model="dryCough" row :mandatory="true">
-                      <v-radio label="Yes" value="Yes"></v-radio>
-                      <v-radio label="No" value="No"></v-radio>
-                    </v-radio-group>
-                  </p>
-                </v-card-text>
-              </v-card>
+                <v-btn text @click="e1 = 2">Back</v-btn>
+              </v-stepper-content>
+              <v-stepper-content step="4">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    Are the cough dry or do you feel dryness in your throat
+                    while coughing?
+                  </v-card-title>
+                  <v-card-text>
+                    <p>
+                      <v-radio-group v-model="dryCough" row :mandatory="true">
+                        <v-radio label="Yes" value="Yes"></v-radio>
+                        <v-radio label="No" value="No"></v-radio>
+                      </v-radio-group>
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = 5">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="e1 = 5">
+                  Continue
+                </v-btn>
 
-              <v-btn text @click="e1 = 3">Back</v-btn>
-            </v-stepper-content>
-            <v-stepper-content step="5">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  Do you have Headaches?
-                </v-card-title>
-                <v-card-text>
-                  <p>
-                    <v-radio-group v-model="headache" row :mandatory="true">
-                      <v-radio label="Yes" value="Yes"></v-radio>
-                      <v-radio label="No" value="No"></v-radio>
-                    </v-radio-group>
-                  </p>
-                </v-card-text>
-              </v-card>
+                <v-btn text @click="e1 = 3">Back</v-btn>
+              </v-stepper-content>
+              <v-stepper-content step="5">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    Do you have Headaches?
+                  </v-card-title>
+                  <v-card-text>
+                    <p>
+                      <v-radio-group v-model="headache" row :mandatory="true">
+                        <v-radio label="Yes" value="Yes"></v-radio>
+                        <v-radio label="No" value="No"></v-radio>
+                      </v-radio-group>
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = 6">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="e1 = 6">
+                  Continue
+                </v-btn>
 
-              <v-btn text @click="e1 = 4">Back</v-btn>
-            </v-stepper-content>
-            <v-stepper-content step="6">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  Do you have Runny Nose?
-                </v-card-title>
-                <v-card-text>
-                  <p>
-                    <v-radio-group v-model="runnyNose" row :mandatory="true">
-                      <v-radio label="Yes" value="Yes"></v-radio>
-                      <v-radio label="No" value="No"></v-radio>
-                    </v-radio-group>
-                  </p>
-                </v-card-text>
-              </v-card>
+                <v-btn text @click="e1 = 4">Back</v-btn>
+              </v-stepper-content>
+              <v-stepper-content step="6">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    Do you have Runny Nose?
+                  </v-card-title>
+                  <v-card-text>
+                    <p>
+                      <v-radio-group v-model="runnyNose" row :mandatory="true">
+                        <v-radio label="Yes" value="Yes"></v-radio>
+                        <v-radio label="No" value="No"></v-radio>
+                      </v-radio-group>
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = 7">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="e1 = 7">
+                  Continue
+                </v-btn>
 
-              <v-btn text @click="e1 = 5">Back</v-btn>
-            </v-stepper-content>
-            <v-stepper-content step="7">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  Do you have itchy or red eyes?
-                </v-card-title>
-                <v-card-text>
-                  <p>
-                    <v-radio-group v-model="itchyEye" row :mandatory="true">
-                      <v-radio label="Yes" value="Yes"></v-radio>
-                      <v-radio label="No" value="No"></v-radio>
-                    </v-radio-group>
-                  </p>
-                </v-card-text>
-              </v-card>
+                <v-btn text @click="e1 = 5">Back</v-btn>
+              </v-stepper-content>
+              <v-stepper-content step="7">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    Do you have itchy or red eyes?
+                  </v-card-title>
+                  <v-card-text>
+                    <p>
+                      <v-radio-group v-model="itchyEye" row :mandatory="true">
+                        <v-radio label="Yes" value="Yes"></v-radio>
+                        <v-radio label="No" value="No"></v-radio>
+                      </v-radio-group>
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = 8">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="e1 = 8">
+                  Continue
+                </v-btn>
 
-              <v-btn text @click="e1 = 6">Back</v-btn>
-            </v-stepper-content>
-            <v-stepper-content step="8">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  Are you sneezing?
-                </v-card-title>
-                <v-card-text>
-                  <p>
-                    <v-radio-group v-model="sneezing" row :mandatory="true">
-                      <v-radio label="Yes" value="Yes"></v-radio>
-                      <v-radio label="No" value="No"></v-radio>
-                    </v-radio-group>
-                  </p>
-                </v-card-text>
-              </v-card>
+                <v-btn text @click="e1 = 6">Back</v-btn>
+              </v-stepper-content>
+              <v-stepper-content step="8">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    Are you sneezing?
+                  </v-card-title>
+                  <v-card-text>
+                    <p>
+                      <v-radio-group v-model="sneezing" row :mandatory="true">
+                        <v-radio label="Yes" value="Yes"></v-radio>
+                        <v-radio label="No" value="No"></v-radio>
+                      </v-radio-group>
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = 9">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="e1 = 9">
+                  Continue
+                </v-btn>
 
-              <v-btn text @click="e1 = 7">Back</v-btn>
-            </v-stepper-content>
-            <v-stepper-content step="9">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  Do you have a Fever?
-                </v-card-title>
-                <v-card-text>
-                  <p>
-                    <v-radio-group v-model="fever" row :mandatory="true">
-                      <v-radio label="Yes" value="Yes"></v-radio>
-                      <v-radio label="No" value="No"></v-radio>
-                    </v-radio-group>
-                  </p>
-                </v-card-text>
-              </v-card>
+                <v-btn text @click="e1 = 7">Back</v-btn>
+              </v-stepper-content>
+              <v-stepper-content step="9">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    Do you have a Fever?
+                  </v-card-title>
+                  <v-card-text>
+                    <p>
+                      <v-radio-group v-model="fever" row :mandatory="true">
+                        <v-radio label="Yes" value="Yes"></v-radio>
+                        <v-radio label="No" value="No"></v-radio>
+                      </v-radio-group>
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = 10">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="e1 = 10">
+                  Continue
+                </v-btn>
 
-              <v-btn text @click="e1 = 8">Back</v-btn>
-            </v-stepper-content>
-            <v-stepper-content step="10">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  Do you have a Sore throat?
-                </v-card-title>
-                <v-card-text>
-                  <p>
-                    <v-radio-group v-model="soreThroat" row :mandatory="true">
-                      <v-radio label="Yes" value="Yes"></v-radio>
-                      <v-radio label="No" value="No"></v-radio>
-                    </v-radio-group>
-                  </p>
-                </v-card-text>
-              </v-card>
+                <v-btn text @click="e1 = 8">Back</v-btn>
+              </v-stepper-content>
+              <v-stepper-content step="10">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    Do you have a Sore throat?
+                  </v-card-title>
+                  <v-card-text>
+                    <p>
+                      <v-radio-group v-model="soreThroat" row :mandatory="true">
+                        <v-radio label="Yes" value="Yes"></v-radio>
+                        <v-radio label="No" value="No"></v-radio>
+                      </v-radio-group>
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = 11">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="e1 = 11">
+                  Continue
+                </v-btn>
 
-              <v-btn text @click="e1 = 9">Back</v-btn>
-            </v-stepper-content>
-            <v-stepper-content step="11">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  Do you have a Muscle or join pain?
-                </v-card-title>
-                <v-card-text>
-                  <p>
-                    <v-radio-group v-model="musclePain" row :mandatory="true">
-                      <v-radio label="Yes" value="Yes"></v-radio>
-                      <v-radio label="No" value="No"></v-radio>
-                    </v-radio-group>
-                  </p>
-                </v-card-text>
-              </v-card>
+                <v-btn text @click="e1 = 9">Back</v-btn>
+              </v-stepper-content>
+              <v-stepper-content step="11">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    Do you have a Muscle or join pain?
+                  </v-card-title>
+                  <v-card-text>
+                    <p>
+                      <v-radio-group v-model="musclePain" row :mandatory="true">
+                        <v-radio label="Yes" value="Yes"></v-radio>
+                        <v-radio label="No" value="No"></v-radio>
+                      </v-radio-group>
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = 12">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="e1 = 12">
+                  Continue
+                </v-btn>
 
-              <v-btn text @click="e1 = 10">Back</v-btn>
-            </v-stepper-content>
-            <v-stepper-content step="12">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  Do you have a Difficulty in breathing?
-                </v-card-title>
-                <v-card-text>
-                  <p>
-                    <v-radio-group v-model="fever" row :mandatory="true">
-                      <v-radio label="Yes" value="Yes"></v-radio>
-                      <v-radio label="No" value="No"></v-radio>
-                    </v-radio-group>
-                  </p>
-                </v-card-text>
-              </v-card>
+                <v-btn text @click="e1 = 10">Back</v-btn>
+              </v-stepper-content>
+              <v-stepper-content step="12">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    Do you have a Difficulty in breathing?
+                  </v-card-title>
+                  <v-card-text>
+                    <p>
+                      <v-radio-group v-model="fever" row :mandatory="true">
+                        <v-radio label="Yes" value="Yes"></v-radio>
+                        <v-radio label="No" value="No"></v-radio>
+                      </v-radio-group>
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = 13">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="submitQuestionnaire">
+                  Submit
+                </v-btn>
 
-              <v-btn text @click="e1 = 11">Back</v-btn>
-            </v-stepper-content>
-            <v-stepper-content step="13">
-              <v-card class="mb-12" color="lighten-1">
-                <v-card-title class="headline">
-                  Do you have a Difficulty in breathing?
-                </v-card-title>
-                <v-card-text>
-                  <p>
-                    <v-radio-group v-model="fever" row :mandatory="true">
-                      <v-radio label="Yes" value="Yes"></v-radio>
-                      <v-radio label="No" value="No"></v-radio>
-                    </v-radio-group>
-                  </p>
-                </v-card-text>
-              </v-card>
+                <v-btn text @click="e1 = 11">Back</v-btn>
+              </v-stepper-content>
+              <v-stepper-content step="13">
+                <v-card class="mb-12" color="lighten-1">
+                  <v-card-title class="headline">
+                    Do you have a Difficulty in breathing?
+                  </v-card-title>
+                  <v-card-text>
+                    <p>
+                      <v-radio-group v-model="fever" row :mandatory="true">
+                        <v-radio label="Yes" value="Yes"></v-radio>
+                        <v-radio label="No" value="No"></v-radio>
+                      </v-radio-group>
+                    </p>
+                  </v-card-text>
+                </v-card>
 
-              <v-btn color="primary" @click="e1 = 13">
-                Continue
-              </v-btn>
+                <v-btn color="primary" @click="e1 = 13">
+                  Continue
+                </v-btn>
 
-              <v-btn text @click="e1 = 11">Back</v-btn>
-            </v-stepper-content>
-          </v-stepper-items>
-        </v-stepper>
-      </v-card>
-    </v-flex>
-  </v-layout>
+                <!-- Account creation dialog -->
+                <div>
+                  <v-row justify="center">
+                    <v-dialog
+                      v-model="accountCreationDialog"
+                      persistent
+                      max-width="290"
+                    >
+                      <v-card>
+                        <v-card-title class="headline"
+                          >Create account</v-card-title
+                        >
+                        <v-card-text
+                          >Would you like to receive your results, news as well
+                          as other relevant information right in your
+                          inbox?.</v-card-text
+                        >
+                        <v-card-actions>
+                          <v-spacer></v-spacer>
+                          <v-btn
+                            color="green darken-1"
+                            text
+                            @click="createAnonymousAccount"
+                            >No</v-btn
+                          >
+                          <v-btn
+                            color="green darken-1"
+                            text
+                            @click="createAccount"
+                          >
+                            Yes</v-btn
+                          >
+                        </v-card-actions>
+                      </v-card>
+                    </v-dialog>
+                  </v-row>
+                </div>
+
+                <v-btn text @click="e1 = 11">Back</v-btn>
+              </v-stepper-content>
+            </v-stepper-items>
+          </v-stepper>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </div>
 </template>
 
 <script>
+/* eslint-disable */
+import firebase from 'firebase'
+
+import { supportForLocalStorage } from '~/src/lib'
+
 export default {
   components: {},
   data() {
     return {
+      newUser: {
+        coords: null,
+        timestamp: null
+      },
+      accountCreationDialog: false,
+      snackbar: {
+        switch: false,
+        text: null,
+        color: null
+      },
       e1: 1,
       errorMessages: '',
       age: null,
@@ -333,6 +397,13 @@ export default {
   },
   mounted() {},
   methods: {
+    createAccount() {},
+    login() {},
+    toggleSnackbar(text, color) {
+      this.snackbar.switch = true
+      this.snackbar.text = text
+      this.snackbar.color = color
+    },
     async createUser() {
       try {
         await this.$fireAuth.createUserWithEmailAndPassword(
@@ -342,6 +413,57 @@ export default {
       } catch (e) {
         // eslint-disable-next-line no-console
         console.error(e)
+      }
+    },
+    async createAnonymousAccount() {
+      try {
+        const newUser = this.newUser
+        newUser.id = this.newUser.timestamp
+        const usersRef = firebase
+          .database()
+          .ref('users/' + this.newUser.timestamp)
+        usersRef.set(newUser)
+
+        usersRef.on('value', function(snapshot) {
+          supportForLocalStorage()
+
+          const LocalStorage = window.localStorage
+          LocalStorage.setItem('coronaApp_userId', snapshot.val().id)
+        })
+      } catch (error) {
+        throw new Error(error)
+      }
+    },
+    submitQuestionnaire() {
+      this.accountCreationDialog = true
+      this.toggleSnackbar(
+        'Allow location permission in order to get information on the infection rate within your vicinity',
+        'primary'
+      )
+      if (process.browser) {
+        if (!navigator.geolocation) {
+          // Geolocation is not available on the client
+          console.log('Unsupported browser')
+        } else {
+          // Geolocation is available on the client
+          const { geolocation } = navigator
+          const options = { enableHighAccuracy: true, maximumAge: 0 }
+          geolocation.getCurrentPosition(
+            ({ coords, timestamp }) => {
+              // Send coordinates to database
+              this.newUser.coords = coords
+              this.newUser.timestamp = timestamp
+            },
+            ({ code, message }) => {
+              if (code) {
+                throw new Error(
+                  `---Attempt to fetch location information failed due to:  ${code} - ${message}`
+                )
+              }
+            },
+            options
+          )
+        }
       }
     }
   }
