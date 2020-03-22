@@ -1,4 +1,4 @@
-const options = {"firebaseVersion":"7.12.0","config":{"apiKey":"AIzaSyDGkxbGsTmdORwTGovQk27NUZbcvx-558c","authDomain":"corona-gh.firebaseapp.com","databaseURL":"https:\u002F\u002Fcorona-gh.firebaseio.com","projectId":"corona-gh","storageBucket":"corona-gh.appspot.com","messagingSenderId":"427890051773","appId":"1:427890051773:web:89517655300ec634e5c5d4","measurementId":"G-Z26C3K54CQ"},"onFirebaseHosting":false,"ignorePaths":["\u002F__webpack_hmr","\u002F_loading","\u002F_nuxt\u002F","\u002Fapi\u002F"]}
+const options = {"firebaseVersion":"7.11.0","config":{"apiKey":"AIzaSyDGkxbGsTmdORwTGovQk27NUZbcvx-558c","authDomain":"corona-gh.firebaseapp.com","databaseURL":"https:\u002F\u002Fcorona-gh.firebaseio.com","projectId":"corona-gh","storageBucket":"corona-gh.appspot.com","messagingSenderId":"427890051773","appId":"1:427890051773:web:89517655300ec634e5c5d4","measurementId":"G-Z26C3K54CQ"},"onFirebaseHosting":false,"ignorePaths":["\u002F__webpack_hmr","\u002F_loading","\u002F_nuxt\u002F","\u002Fapi\u002F"]}
 const version = options.firebaseVersion
 const onFirebaseHosting = options.onFirebaseHosting
 const ignorePaths = options.ignorePaths
