@@ -69,8 +69,8 @@
                           rules="required|mustBeANumber"
                         >
                           <v-text-field
-                            :disabled="existingUser"
                             v-model="User.age"
+                            :disabled="existingUser"
                             :error-messages="errors"
                             label="Age"
                             required
@@ -487,8 +487,21 @@ export default {
       this.snackbar = true
     },
     submit() {
+      this.e1 = 11
       this.submitQuestionnaire()
-      let level = 0
+    },
+    async createUser() {
+      try {
+        await this.$fireAuth.createUserWithEmailAndPassword(
+          'foo@foo.foo',
+          'test123456'
+        )
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error(e)
+      }
+    },
+    async createAnonymousAccount() {
       if (this.test.cough === 'Yes') {
         level += 1
       }
@@ -510,6 +523,7 @@ export default {
       if (this.test.infect === 'Yes') {
         level += 2
       }
+      let level = 0
       if (level < 4) {
         this.test.level = 'Low'
         this.e1 = 14
@@ -520,20 +534,6 @@ export default {
         this.test.level = 'High'
         this.e1 = 12
       }
-      this.e1 = 11
-    },
-    async createUser() {
-      try {
-        await this.$fireAuth.createUserWithEmailAndPassword(
-          'foo@foo.foo',
-          'test123456'
-        )
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.error(e)
-      }
-    },
-    async createAnonymousAccount() {
       try {
         const LocalStorage = window.localStorage
 
@@ -563,7 +563,7 @@ export default {
           })
         }
 
-        this.next()
+        //this.next()
       } catch (error) {
         throw new Error(error)
       }
