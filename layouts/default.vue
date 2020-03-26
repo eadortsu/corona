@@ -101,7 +101,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Corona App'
+      title: 'Corona Ap'
     }
   },
   computed: {}
