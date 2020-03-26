@@ -1,0 +1,54 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "eadortsu",
+      "name": "Eugene",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/40460447?v=4",
+      "profile": "https://eadortsu.com",
+      "contributions": [
+        "infra",
+        "test",
+        "doc",
+        "design",
+        "maintenance",
+        "review",
+        "code"
+      ]
+    },
+    {
+      "login": "mesteralfreddohnani",
+      "name": "Alfred Doh-Nani",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/54582881?v=4",
+      "profile": "https://github.com/mesteralfreddohnani",
+      "contributions": [
+        "test",
+        "doc",
+        "design",
+        "code"
+      ]
+    },
+    {
+      "login": "thembekageorge",
+      "name": "Thembeka",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/20106105?v=4",
+      "profile": "https://github.com/thembekageorge",
+      "contributions": [
+        "code",
+        "ideas",
+        "test",
+        "content"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "corona",
+  "projectOwner": "eadortsu",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
