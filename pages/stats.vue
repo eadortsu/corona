@@ -58,11 +58,78 @@
                     </v-list-item-action>
                   </template>
 
-                  <v-list-item>
-                    <v-list-item-content>
-                      <v-list-item-title></v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
+                  <div style="background: #2e2e2e;margin: 0px 20px;">
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Total Cases</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.cases"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Active cases</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.active_cases"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>New cases</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.new_cases"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Critical cases</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.serious_critical"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Deaths</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.deaths"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>New Deaths</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.new_deaths"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Total Recovered</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.total_recovered"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                  </div>
                 </v-list-group>
               </v-list>
             </v-card>
@@ -88,11 +155,78 @@
                     </v-list-item-action>
                   </template>
 
-                  <v-list-item>
-                    <v-list-item-content>
-                      <v-list-item-title></v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
+                  <div style="background: #2e2e2e;margin: 0px 20px;">
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Total Cases</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.cases"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Active cases</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.active_cases"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>New cases</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.new_cases"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Critical cases</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.serious_critical"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Deaths</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.deaths"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>New Deaths</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.new_deaths"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Total Recovered</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.total_recovered"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                  </div>
                 </v-list-group>
               </v-list>
             </v-card>
@@ -118,11 +252,78 @@
                     </v-list-item-action>
                   </template>
 
-                  <v-list-item>
-                    <v-list-item-content>
-                      <v-list-item-title></v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
+                  <div style="background: #2e2e2e;margin: 0px 20px;">
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Total Cases</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.cases"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Active cases</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.active_cases"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>New cases</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.new_cases"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Critical cases</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.serious_critical"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Deaths</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.deaths"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>New Deaths</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.new_deaths"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title>Total Recovered</v-list-item-title>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-list-item-action-text
+                          v-text="country.total_recovered"
+                        ></v-list-item-action-text>
+                      </v-list-item-action>
+                    </v-list-item>
+                  </div>
                 </v-list-group>
               </v-list>
             </v-card>
