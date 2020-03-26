@@ -335,7 +335,6 @@
 </template>
 <script>
 import axios from 'axios'
-import CountryCodes from './CountryCodes.json'
 export default {
   data() {
     return {
@@ -350,8 +349,7 @@ export default {
       countries: null,
       errors: [],
       search: '',
-      loading: true,
-      CountryCodes
+      loading: true
     }
   },
   mounted() {
