@@ -300,7 +300,7 @@
 
                   <h5>
                     Stay safe and healthy. Please follow the advice on COVID19
-                    prevention.
+                    prevention. Ware a nose marsk.
                   </h5>
                   <p>
                     Take this test again tomorrow, Call the following Numbers in
@@ -385,17 +385,6 @@ export default {
         this.e1 = 11
       }
     },
-    async createUser() {
-      try {
-        await this.$fireAuth.createUserWithEmailAndPassword(
-          'foo@foo.foo',
-          'test123456'
-        )
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.error(e)
-      }
-    }
   }
 }
 </script>
