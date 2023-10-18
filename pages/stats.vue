@@ -359,7 +359,7 @@ export default {
     loadStats() {
       axios
         .get(
-          `https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php`,
+          `https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php/`,
           {
             headers: {
               'x-rapidapi-host': 'coronavirus-monitor.p.rapidapi.com',
@@ -369,7 +369,6 @@ export default {
           }
         )
         .then((response) => {
-          // JSON responses are automatically parsed.
           this.confirms = response.data.total_cases
           this.deaths = response.data.total_deaths
           this.recovered = response.data.total_recovered
@@ -382,7 +381,7 @@ export default {
 
       axios
         .get(
-          `https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php`,
+          `https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php/`,
           {
             headers: {
               'x-rapidapi-host': 'coronavirus-monitor.p.rapidapi.com',
@@ -392,7 +391,6 @@ export default {
           }
         )
         .then((response) => {
-          // JSON responses are automatically parsed.
           this.countries_stat = response.data.countries_stat
           this.countries = response.data.countries_stat
           this.loading = false
