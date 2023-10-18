@@ -23,7 +23,7 @@
             <v-stepper-content step="1">
               <v-card class="mb-12" color="lighten-1">
                 <v-card-title class="headline">
-                  COVID-19 risk screening and testing</v-card-title
+                  COVID-19 Risk Screening and Testing</v-card-title
                 >
                 <v-card-text>
                   <p>
@@ -237,7 +237,7 @@
                     Isolate yourself from family and friends Call the following
                     Numbers and you will be told what to do next:
                   </p>
-                  <p>For Ghana: +233 55 843 9868 / +233 50 949 7700</p>
+                  <p>For Ghana: +233 55 843 9868/+233 50 949 7700</p>
                   <p>
                     For Nigeria: 08000CORONA 08023169485, 08033565529,
                     08052817243
