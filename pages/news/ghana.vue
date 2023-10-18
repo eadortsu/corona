@@ -76,7 +76,7 @@ export default {
     loadNews() {
       axios
         .get(
-          `https://cors-anywhere.herokuapp.com/https://ghananewsagency.org/rss.php`
+          `https://gna.org.gh/feed/`
         )
         .then((response) => {
           const convert = require('xml-js')
