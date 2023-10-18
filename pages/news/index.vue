@@ -77,8 +77,9 @@ export default {
           `https://newsapi.org/v2/everything?q=Coronavirus%20OR%20COVID-19%20OR%20COVID19%20OR%20COVID&apiKey=8938d122c93a43b3aaf60512b06398f1`
         )
         .then((response) => {
-          // JSON responses are automatically parsed.
-          this.news = response.data.articles
+          if(response.data.status == 'ok') {
+            this.news = response.data && response.data.articles
+          }
           this.loading = false
         })
         .catch((e) => {
