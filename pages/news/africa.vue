@@ -28,11 +28,6 @@
               ><v-icon>mdi-open-in-new</v-icon></v-btn
             >
             <v-btn icon><v-icon>mdi-share-variant</v-icon></v-btn>
-            <!-- <v-btn icon @click="show = !show">
-              <v-icon>{{
-                show ? 'mdi-chevron-up' : 'mdi-chevron-down'
-              }}</v-icon>
-            </v-btn>-->
           </v-card-actions>
 
         </v-card>
