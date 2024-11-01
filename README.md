@@ -37,7 +37,6 @@ $ yarn generate
 ```
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -57,5 +56,5 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-Contributions of any kind welcome!
+Contributions of any kind welcome.
 
